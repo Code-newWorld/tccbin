@@ -255,6 +255,31 @@
           ]
         }
       ]
+    },
+    {
+      "id": "patch-0010",
+      "path": "0010-win32-ignore-remaining-benign-debug-exceptions.patch",
+      "sha256": "10c550681b93667a571ad5b41f977de2606a1e90a0446f177ebc8c386b54ed9a",
+      "order": 10,
+      "category": "upstream-candidate",
+      "auto_deprecatable": false,
+      "state": "active-required",
+      "effects": [
+        {
+          "id": "patch-0010-effect",
+          "owner": "tinycc",
+          "files": [
+            "tccrun.c",
+            "win32/include/winapi/winnt.h"
+          ],
+          "functions": [
+            "cpu_exception_handler"
+          ],
+          "required_probe_ids": [
+            "patch-0010"
+          ]
+        }
+      ]
     }
   ],
   "transforms": [
@@ -4473,6 +4498,15 @@
         "i386"
       ],
       "oracle": "CancelIoEx ABI and import resolve"
+    },
+    {
+      "id": "patch-0010",
+      "required": true,
+      "expected_lanes": [
+        "x64",
+        "i386"
+      ],
+      "oracle": "Wide ODS, RIP, SetThreadName, and C++ EH notifications are nonfatal; AV remains fatal"
     },
     {
       "id": "header-gmtime-s",
